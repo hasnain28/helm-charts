@@ -5,7 +5,7 @@ application:
 
 backend:
   replicas: 1
-  image: kahootali/python-backend
+  image: kahootali/python-backend:batch8
   imagePullPolicy: IfNotPresent
   containerPort: 8080
   service:
@@ -15,10 +15,13 @@ backend:
 
 frontend:
   replicas: 1
-  image: kahootali/node-frontend
+  image: kahootali/node-frontend:batch8
   imagePullPolicy: IfNotPresent
   containerPort: 8080
+  env:
+  - name: BACKEND_URL
+    value: dice-backend:8080 
   service:
     port: 8080
     type: "NodePort"
-    nodePort: 31000
+    nodePort: 31001

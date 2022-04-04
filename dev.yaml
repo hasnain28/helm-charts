@@ -2,13 +2,13 @@ applicationName: dev
 
 backend:
   replicas: 1
-  image: kahootali/python-backend:batch7
+  image: kahootali/python-backend:batch8
   service:
     type: ClusterIP
     port: 9080
 
 frontend:
-  image: kahootali/node-frontend:batch7
+  image: kahootali/node-frontend:batch8
   env:
   - name: BACKEND_URL
     value: dev-backend:9080 
